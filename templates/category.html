@@ -11,7 +11,17 @@
     ul {
         list-style: none;
     }
-
+.heading{
+    
+    width: auto;
+    background-color: rgb(41, 46, 46);
+    color:rgb(236, 232, 232);
+    padding: 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
     .side-nav-categories {
         padding: 0px;
         position: relative;
@@ -27,17 +37,7 @@
         margin: auto;
         top: 10px;
     }
-.heading{
-    
-    width: auto;
-    background-color: rgb(41, 46, 46);
-    color:rgb(236, 232, 232);
-    padding: 7px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-    border-radius: 5px;
-}
+
     .title {
         color: #fff;
         font-size: 16px;
@@ -129,7 +129,8 @@
                 </ul>
                 {% endfor %}
             </div>
-        <a class="btn btn-secondary btn-lg btn-block mt-4"  href="{% url 'upload'  %}">Add Photo</a>
+            <a  class="btn btn-secondary btn-lg btn-block mt-4" href="{% url 'upload'  %}">Add
+                    Photo</a>
         </div>
         <div class="col-sm-9">
             <div class="row">

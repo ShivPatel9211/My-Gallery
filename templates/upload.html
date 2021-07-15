@@ -1,17 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form  method="POST" enctype="multipart/form-data">
-        <input type="text" name="filename"  placeholder="enter your file name" >
-        <input type="file" multiple name="uploadfoles" >
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Upload Photo!</title>
+    <style>
+    .heading{
+    
+    width: auto;
+    background-color: rgb(41, 46, 46);
+    color:rgb(236, 232, 232);
+    padding: 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.upload{
+    margin-left: auto;
+    margin-right: auto;
+}
+.col-10{
+    margin-left: auto ;
+    margin-right: auto;
+}
+    </style>
+  </head>
+  <body>
+   <div class='container'>
+<div class='row'>
+<div class="col-sm-12 col-lg-6  upload ">
+<h1 class ='heading'>Add Photo</h1>
+      <!-- form  -->
+      <form method="POST" enctype="multipart/form-data" >
         {% csrf_token %}
-        <button type="submit">File Upload</button>
-    </form>   
-</body>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-lebel">Catagories</label>
+          <select id="disabledSelect" class="form-control" name="filename">
+          <option value="none" disabled selected>--Select Category--</option>
+            {% for i in category %}
+            <option value="{{i.cat}}" >{{i.cat}}</option>
+            {% endfor %}
+          </select>
+        </div>
+       
+        <div class="mb-3">
+          <label for="image" class="form-label">Choose</label>
+          <input type="file" class="form-control" id="image" multiple name="uploadfiles">
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Upload</button>
+      </form>
+    </div>
+</div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
