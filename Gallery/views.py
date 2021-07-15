@@ -50,14 +50,16 @@ def rotateright(request ,id):
     image = np.array(Image.open(photo.myfiles.file))
     image = Image.fromarray(np.rot90(image, 3))
     image.save(photo.myfiles.file.name)
-    return redirect('home')
+    id=id
+    return redirect('viewPhoto',id)
 
 def rotateleft(request,id):
     photo = myuploadfile.objects.get(pk=id)
     image = np.array(Image.open(photo.myfiles.file))
     image = Image.fromarray(np.rot90(image))
     image.save(photo.myfiles.file.name)
-    return redirect('home')
+    id=id
+    return redirect('viewPhoto',id)
 
 def category(request,id):
     category =Category.objects.all()
